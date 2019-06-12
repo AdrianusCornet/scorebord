@@ -8,10 +8,12 @@ export default class Player extends Component {
     name: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
+    updatePlayers: PropTypes.func.isRequired
   }
 
   handleClick = () => {
     console.log('ping', this.props.id)
+    this.props.updatePlayers(this.props.id)
   }
   
   render() {

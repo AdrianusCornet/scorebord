@@ -3,7 +3,7 @@ import Player from './Player'
 import './Scoreboard.css'
 
 export default class Scoreboard extends Component {
-  state ={
+  state = {
     players: [
       {
         id: 1,
@@ -22,27 +22,27 @@ export default class Scoreboard extends Component {
       }
     ]
   }
-  
-  updatePlayers = (id, score) => {
-    const updatedPlayers = this.state.players.map(player => {
-      if (player.id === id) {
-        player.score = score
+
+  updatePlayers = (id) => {
+    const updatedPlayers = this.state.players
+      .map(player => {
+        if (player.id === id) {
+          player.score += 1
+        }
         return player
-      }
-      return player
-    })
-    this.setState({players: updatedPlayers})
+      })
+    this.setState({ players: updatedPlayers })
   }
 
-  renderPlayer(player) {
+  renderPlayer = (player) => {
     return < Player
       name={player.name}
       score={player.score}
       key={player.id}
       id={player.id}
+      updatePlayers={this.updatePlayers}
     />
   }
-  
   render() {
     return (
       <div className='scoreboard'>
@@ -50,7 +50,7 @@ export default class Scoreboard extends Component {
         <ul>
           {
             this.state.players
-              .sort((a, b) =>  b.score - a.score)
+              .sort((a, b) => b.score - a.score)
               .map(this.renderPlayer)
           }
         </ul>
