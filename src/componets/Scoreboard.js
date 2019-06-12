@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Player from './Player'
 import './Scoreboard.css'
+import AddPlayer from './AddPlayer'
 
 export default class Scoreboard extends Component {
   state = {
@@ -33,6 +34,16 @@ export default class Scoreboard extends Component {
       })
     this.setState({ players: updatedPlayers })
   }
+  addPlayer = (name) =>{
+    const newPlayer = {
+      id: this.state.players.length + 2,
+      name,
+      score: 0
+    }
+    this.setState({
+      players: this.state.players.concat(newPlayer)
+    })
+  }
 
   renderPlayer = (player) => {
     return < Player
@@ -54,6 +65,9 @@ export default class Scoreboard extends Component {
               .map(this.renderPlayer)
           }
         </ul>
+        <br/>
+        <br/>
+        < AddPlayer addPlayer={this.addPlayer}/>
       </div>
     )
   }

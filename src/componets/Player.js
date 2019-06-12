@@ -12,7 +12,6 @@ export default class Player extends Component {
   }
 
   handleClick = () => {
-    console.log('ping', this.props.id)
     this.props.updatePlayers(this.props.id)
   }
   
