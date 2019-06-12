@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PlusButton from './PlusButton'
+import './Player.css'
 
 export default class Player extends Component {
   static propTypes = {

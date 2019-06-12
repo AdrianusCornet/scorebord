@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Player from './Player'
+import './Scoreboard.css'
 
 export default class Scoreboard extends Component {
   state ={
@@ -44,7 +45,7 @@ export default class Scoreboard extends Component {
   
   render() {
     return (
-      <div className='scorebord'>
+      <div className='scoreboard'>
         <h1>Scoreboard</h1>
         <ul>
           {
