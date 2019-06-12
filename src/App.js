@@ -5,7 +5,10 @@ import Title from './componets/Title'
 function App() {
   return (
     <div className="App">
-      < Title content='My Title' />
+      < Title content='scorebord' />
+      <br/>
+      <br/>
+      
     </div>
   );
 }
